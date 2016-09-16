@@ -29,6 +29,8 @@ class Guerrero {
 		void setForce(int);
 		int getLuck();
 		void setLuck(int);
+		int getBattlesWon();
+		void setBattlesWon();
 		virtual string toString();
 		virtual Guerrero* attack(Guerrero*);
 };

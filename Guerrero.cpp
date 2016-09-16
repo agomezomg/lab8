@@ -15,10 +15,12 @@ using std::stringstream;
 using std::cout;
 
 Guerrero::Guerrero() {
-
+	this -> battlesWon = 0;
 }
 
 Guerrero::Guerrero(string name, int HP, double offence, double defence, int force, int luck) : name(name), HP(HP) {
+	this -> battlesWon = 0;
+
 	if(offence > 1) {
 		this -> offence = offence/100;
 	} else if (offence > 0 && offence < 1) {
@@ -66,7 +68,12 @@ int Guerrero::getHP() {
 }
 
 void Guerrero::setHP(int HP) {
-	this -> HP = HP;
+	if (HP < this -> HP)
+	{
+		cout << "No changes. \n";
+	} else {
+		this -> HP = HP;
+	}	
 }
 
 double Guerrero::getOffence() {
@@ -150,6 +157,17 @@ Guerrero* Guerrero::attack(Guerrero* warrior) {
 
 	warrior -> setHP(warrior -> getHP() - hit);
 	return warrior;
+}
+
+int Guerrero::getBattlesWon() {
+	return this -> battlesWon;
+}
+
+void Guerrero::setBattlesWon(int battlesWon) {
+	if (this -> battlesWon + battlesWon > 1)
+	{
+		
+	}
 }
 
 /*if (dynamic_cast<Airbender*>(warrior) != NULL)

@@ -14,12 +14,18 @@ Airbender::Airbender() : Guerrero() {
 
 }
 
-Airbender::Airbender(string name, int HP, double offence, double attack, int force, int luck, double specialAttack) : Guerrero(name, HP, offence, attack, force, luck),
-specialAttack(specialAttack) {
-
+Airbender::Airbender(string name, int HP, double offence, double attack, int force, int luck, double specialAttack) : 
+Guerrero(name, HP, offence, attack, force, luck), specialAttack(specialAttack) {
+	if(specialAttack > 1) {
+		this -> specialAttack = specialAttack/100;
+	} else if (specialAttack > 0 && specialAttack < 1) {
+		this -> specialAttack = specialAttack;
+	} else {
+		cout << "No changes \n";
+	}
 }
 
-string Airbender::toString() {
+Airbender::~Airbender() {
 
 }
 
@@ -37,10 +43,10 @@ void Airbender::setSpecialAttack(double specialAttack) {
 	}
 }
 
-Guerrero* Airbender::attack(Guerrero* warrior) {
-	
+string Airbender::toString() {
+
 }
 
-Airbender::~Airbender() {
-
+Guerrero* Airbender::attack(Guerrero* warrior) {
+	
 }
