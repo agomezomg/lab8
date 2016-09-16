@@ -1,0 +1,17 @@
+Avatar
+
+En un mundo ideal, uno de sus programas favoritos de la infancia fue “Avatar”. Recordara que una parte de la poblacion nace con poderes extraordinarios — en su forma mas basica, la manipulacion de los cuatro elementos.
+Durante el siglo que el Avatar desaparecio, las demas naciones formaron ejercitos para luchar contra la nacion del fuego. Aunque conocemos el resultado despues de cien anos, queremos saber que tan intensas fueron las batallas. Nosotros deseamos crear una simulacion de lo que ocurriria en ese periodo con las tropas.
+
+Para eso, tendremos guerreros, algunos sin habilidades, y otros con habilidades de tierra, agua, aire o fuego (imaginemos que algunos maestro aire no eran tan pacificos como en el canon). El guerrero regular tendra un nombre, HP, defensa, ofensa, fuerza, y un nivel de suerte.
+
+Los maestros aire, aparte de tener todas las cualidades del guerrero, tendran un ataque especial (double), seran vulnerables a los ataques de tierra (los ataques de tierra son 25% mas efectivos en un maestro aire).
+
+Los maestros tierra, tendran todas las cualidades del guerrero, un ataque especial, y seran vulnerables a los ataques de agua (son 25% mas efectivos). Adicionalmente, un maestro tierra que tenga una fuerza mayor o igual a 100, tendra la capacidad de manipular metal, y todos sus ataques incrementaran por 50%. El maestro tierra tiene defensa especial contra un ataque electrico (75%).
+
+Los maestros agua, tendran todas las cualidades del guerrero, un ataque especial, y seran vulnerables a los ataques de fuego (son 25% mas efectivos). Adicionalmente, un maestro agua que tenga una fuerza mayor o igual a 110, tendra la capacidad de recuperar su HP por 10% una vez cada turno.
+
+Los maestros fuego tendran todas las cualidades del guerrero, un ataque especial, y seran vulnerables a los ataques de tierra (son 15% mas efectivos… :)). Adicionalmente, un maestro fuego que tenga una fuerza mayor o igual a 150 tendra la capacidad de utilizar ataques electricos, que seran 75% mas efectivos en maestros agua.
+
+Al ingresar un guerrero su fuerza no debe sobrepasar 60, incrementara solo despues de hacer una simulacion de batalla, y solamente incrementara para el guerrero ganador.
+El nivel de suerte es para smash hits (referencia a los juegos de Mother <3). Un guerrero puede tener un nivel de suerte de 0 a 10. Si el nivel de suerte se encuentra entre 0 y 5, entonces haga un random de 1 a 1,000,000. Si el random retorna 50, entonces sera un smash hit, y sera 50% mas efectivo. Si el nivel de suerte se encuentra entre 6 y 9, entonces sera un random que elija numeros de 1 a 10000, y cumplira con el mismo requisito previamente escrito. Si la suerte es igual a 10, entonces el random buscara numeros de 1 a 100.
