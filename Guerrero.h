@@ -36,4 +36,5 @@ class Guerrero \{\
 		void setForce();\
 		int getLuck();\
 		void setLuck();\
+		string toString();\
 \};}
