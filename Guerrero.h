@@ -11,22 +11,24 @@ class Guerrero {
 		double defence;
 		int force;
 		int luck;
+		int battlesWon;
 
 	public:
 		Guerrero();
-		Guerrero();
 		Guerrero(string, int, double, double, int, int);
+		virtual ~Guerrero();
 		string getName();
 		void setName(string);
 		int getHP();
-		void setHP();
+		void setHP(int);
 		double getOffence();
-		void setOffence();
+		void setOffence(double);
 		double getDefence();
-		void setDefence();
+		void setDefence(double);
 		int getForce();
-		void setForce();
+		void setForce(int);
 		int getLuck();
-		void setLuck();
-		string toString();
+		void setLuck(int);
+		virtual string toString();
+		virtual Guerrero* attack(Guerrero*);
 };
