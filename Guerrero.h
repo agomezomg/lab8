@@ -30,7 +30,7 @@ class Guerrero {
 		int getLuck();
 		void setLuck(int);
 		int getBattlesWon();
-		void setBattlesWon();
+		void setBattlesWon(Guerrero*);
 		virtual string toString();
 		virtual Guerrero* attack(Guerrero*);
 };

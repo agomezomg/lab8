@@ -8,12 +8,15 @@ class Firebender : public Guerrero
 {
 private:
 	double specialAttack;
+	bool electric;
 
 public:
 	Firebender();
+	Firebender(string, int, double, double, int, int, double);
 	~Firebender();
-	Guerrero* attack(Guerrero*);
 	double getSpecialAttack();
 	void setSpecialAttack(double);
-	
+	bool getElectric();
+	string toString();
+	Guerrero* attack(Guerrero*);
 };

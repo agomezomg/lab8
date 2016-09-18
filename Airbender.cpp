@@ -44,9 +44,37 @@ void Airbender::setSpecialAttack(double specialAttack) {
 }
 
 string Airbender::toString() {
-
+	stringstream ss;
+	ss << Guerrero::toString() << ", Special Attack strength: " << specialAttack*100 << "%";
+	return ss.str();
 }
 
 Guerrero* Airbender::attack(Guerrero* warrior) {
+	int iSecret;
+
+	if (luck < 5)
+	{
+		iSecret = rand() % 10000 + 1;
+	} else if (luck > 5 && luck < 10)
+	{
+		iSecret = rand() % 1000 + 1;
+	} else {
+		iSecret = rand() % 100 + 1;
+	}
 	
+	int hit = (warrior -> getHP() * offence) - (warrior -> getDefence() * warrior -> getHP());
+	
+	if (iSecret == 50)
+	{
+		hit = hit * 2;
+	}
+
+	if (dynamic_cast<Firebender*>(warrior) != NULL)
+	{
+		Firebender* temp = dynamic_cast<Firebender*>(warrior);
+		hit = hit + (hit * 0.25);
+	}
+
+	warrior -> setHP(warrior -> getHP() - hit);
+	return warrior;
 }

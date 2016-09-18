@@ -1,10 +1,64 @@
 #include "Guerrero.h"
 #include "Firebender.h"
+#include "Airbender.h"
 #include <iostream>
 #include <sstream>
 #include <string>
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
+#include <math.h>
+
+using namespace std;
+
+Firebender::Firebender() : Guerrero() {
+	electric = false;
+}
+
+Firebender::~Firebender() {
+
+}
+
+Firebender::Firebender(string name, int HP, double offence, double attack, int force, int luck, double specialAttack) : 
+Guerrero(name, HP, offence, attack, force, luck), specialAttack(specialAttack) {
+	electric = false;
+	if(specialAttack > 1) {
+		this -> specialAttack = specialAttack/100;
+	} else if (specialAttack > 0 && specialAttack < 1) {
+		this -> specialAttack = specialAttack;
+	} else {
+		cout << "No changes \n";
+	}
+}
+
+double Firebender::getSpecialAttack() {
+	return this -> specialAttack;
+}
+
+void Firebender::setSpecialAttack(double specialAttack) {
+	if(specialAttack > 1) {
+		this -> specialAttack = specialAttack/100;
+	} else if (specialAttack > 0 && specialAttack < 1) {
+		this -> specialAttack = specialAttack;
+	} else {
+		cout << "No changes \n";
+	}
+}
+
+bool Firebender::getElectric() {
+	if (force >= 100)
+	{
+		this -> electric = true;
+	}
+
+	return this -> electric;
+}
+
+
+string Firebender::toString() {
+	stringstream ss;
+	ss << Guerrero::toString() << " Electric? " << electric << ", Special Attack strength: " << specialAttack*100 << "%";
+	return ss.str();
+}
 
 Guerrero* Firebender::attack(Guerrero* warrior) {
 	int iSecret;
@@ -19,13 +73,34 @@ Guerrero* Firebender::attack(Guerrero* warrior) {
 		iSecret = rand() % 100 + 1;
 	}
 	
-	int hit = (warrior -> getHP() * offence) - warrior -> getDefence();
+	int hit = (warrior -> getHP() * this -> offence) - (warrior -> getDefence() * warrior -> getHP());
 	
 	if (iSecret == 50)
 	{
 		hit = hit * 2;
 	}
 
+	if (dynamic_cast<Waterbender*>(warrior) != NULL)
+	{
+		Waterbender* temp = dynamic_cast<Waterbender*>(warrior);
+		hit = hit + (hit * 0.25);
+	}
+
 	warrior -> setHP(warrior -> getHP() - hit);
 	return warrior;
 }
+
+/*if (dynamic_cast<Airbender*>(warrior) != NULL)
+	{
+		Airbender* temp = dynamic_cast<Airbender*>(warrior);
+
+	} else if (dynamic_cast<Waterbender*>(warrior) != NULL)
+	{
+		Waterbender* temp = dynamic_cast<Airbender*>(warrior);
+	} else if (dynamic_cast<Earthbender*>(warrior) != NULL)
+	{
+		Earthbender* temp = dynamic_cast<Airbender*>(warrior);
+	} else if (dynamic_cast<Firebender*>(warrior) != NULL)
+	{
+		Firebender* temp = dynamic_cast<Airbender*>(warrior);
+	}*/

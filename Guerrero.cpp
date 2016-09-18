@@ -8,7 +8,7 @@
 #include "Earthbender.h"
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
-
+#include <math.h>
 
 using std::string;
 using std::stringstream;
@@ -39,9 +39,9 @@ Guerrero::Guerrero(string name, int HP, double offence, double defence, int forc
 		this -> defence = 0.1;
 	}
 
-	if(force > 50 || force < 0) {
+	if(force > 60 || force < 0) {
 		cout << "value not permitted, setting force to max lvl...\n";
-		this -> force = 50;
+		this -> force = 60;
 	}
 
 	if(luck < 0 || luck > 10) {
@@ -148,7 +148,7 @@ Guerrero* Guerrero::attack(Guerrero* warrior) {
 		iSecret = rand() % 100 + 1;
 	}
 	
-	int hit = (warrior -> getHP() * offence) - warrior -> getDefence();
+	int hit = (warrior -> getHP() * offence) - (warrior -> getDefence() * warrior -> getHP());
 	
 	if (iSecret == 50)
 	{
@@ -163,11 +163,8 @@ int Guerrero::getBattlesWon() {
 	return this -> battlesWon;
 }
 
-void Guerrero::setBattlesWon(int battlesWon) {
-	if (this -> battlesWon + battlesWon > 1)
-	{
-		
-	}
+void Guerrero::setBattlesWon(Guerrero* defeated) {
+	this -> battlesWon = (defeated -> getHP() * 0.25);
 }
 
 /*if (dynamic_cast<Airbender*>(warrior) != NULL)
