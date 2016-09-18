@@ -215,6 +215,12 @@ int main() {
 		} else if (option == 5)
 		{
 			cout << "k, bye. \n";
+		} else if (option == 6)
+		{
+			for (int i = 0; i < army.size(); ++i)
+			{
+				cout << army.at(i) -> getName() << endl;
+			}
 		}
 	} while (option != 5);
 	return 0;
