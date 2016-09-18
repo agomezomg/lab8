@@ -68,12 +68,8 @@ int Guerrero::getHP() {
 }
 
 void Guerrero::setHP(int HP) {
-	if (HP < this -> HP)
-	{
-		cout << "No changes. \n";
-	} else {
-		this -> HP = HP;
-	}	
+	
+	this -> HP = HP;
 }
 
 double Guerrero::getOffence() {
@@ -152,9 +148,17 @@ Guerrero* Guerrero::attack(Guerrero* warrior) {
 	
 	if (iSecret == 50)
 	{
+		cout << "SMAAAAAAAAAAAAAAAAAASH! \n";
 		hit = hit * 2;
 	}
+	
+	if (hit  < 0)
+	{
+		hit = hit * -1;
+	}
 
+	cout << name << " deals damage of " << hit << "! \n";
+	
 	warrior -> setHP(warrior -> getHP() - hit);
 	return warrior;
 }
@@ -164,7 +168,8 @@ int Guerrero::getBattlesWon() {
 }
 
 void Guerrero::setBattlesWon(Guerrero* defeated) {
-	this -> battlesWon = (defeated -> getHP() * 0.25);
+	this -> force = ceil(defeated -> getHP() * 0.25);
+	this -> battlesWon += 1;
 }
 
 /*if (dynamic_cast<Airbender*>(warrior) != NULL)

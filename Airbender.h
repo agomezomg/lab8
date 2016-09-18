@@ -17,4 +17,5 @@ public:
 	void setSpecialAttack(double);
 	string toString();
 	Guerrero* attack(Guerrero*);
+	Guerrero* attackSpecial(Guerrero*);
 };

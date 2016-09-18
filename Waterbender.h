@@ -19,5 +19,6 @@ public:
 	string toString();
 	Guerrero* attack(Guerrero*);
 	bool getHealing();
-	void recover(); //PENDING
+	Guerrero* recover(Guerrero*);
+	Guerrero* attackSpecial(Guerrero*);
 };

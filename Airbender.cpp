@@ -1,5 +1,6 @@
 #include "Guerrero.h"
 #include "Airbender.h"
+#include "Firebender.h"
 #include <string>
 #include <sstream>
 #include <iostream>
@@ -66,6 +67,7 @@ Guerrero* Airbender::attack(Guerrero* warrior) {
 	
 	if (iSecret == 50)
 	{
+		cout << "SMAAAAAAAAAAAAAAAAAASH! \n";
 		hit = hit * 2;
 	}
 
@@ -74,6 +76,51 @@ Guerrero* Airbender::attack(Guerrero* warrior) {
 		Firebender* temp = dynamic_cast<Firebender*>(warrior);
 		hit = hit + (hit * 0.25);
 	}
+
+	if (hit  < 0)
+	{
+		hit = hit * -1;
+	}
+
+	cout << name << " deals damage of " << hit << "! \n";
+
+	warrior -> setHP(warrior -> getHP() - hit);
+	return warrior;
+}
+
+Guerrero* Airbender::attackSpecial(Guerrero* warrior) {
+	int iSecret;
+
+	if (luck < 5)
+	{
+		iSecret = rand() % 10000 + 1;
+	} else if (luck > 5 && luck < 10)
+	{
+		iSecret = rand() % 1000 + 1;
+	} else {
+		iSecret = rand() % 100 + 1;
+	}
+	
+	int hit = (warrior -> getHP() * offence) - (warrior -> getDefence() * warrior -> getHP());
+	
+	if (iSecret == 50)
+	{
+		cout << "SMAAAAAAAAAAAAAAAAAASH! \n";
+		hit = hit * 2;
+	}
+
+	if (dynamic_cast<Firebender*>(warrior) != NULL)
+	{
+		Firebender* temp = dynamic_cast<Firebender*>(warrior);
+		hit = hit + (hit * 0.25);
+	}
+
+	if (hit  < 0)
+	{
+		hit = hit * -1;
+	}
+
+	cout << name << " deals damage of " << hit << "! \n";
 
 	warrior -> setHP(warrior -> getHP() - hit);
 	return warrior;

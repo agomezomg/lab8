@@ -1,5 +1,6 @@
 #include "Guerrero.h"
 #include "Waterbender.h"
+#include "Firebender.h"
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -81,9 +82,60 @@ Guerrero* Waterbender::attack(Guerrero* warrior) {
 	
 	if (iSecret == 50)
 	{
+		cout << "SMAAAAAAAAAAAAAAAAAASH! \n";
 		hit = hit * 2;
 	}
 
+	if (hit  < 0)
+	{
+		hit = hit * -1;
+	}
+
+	cout << name << " deals damage of " << hit << "! \n";
+	
 	warrior -> setHP(warrior -> getHP() - hit);
+	return warrior;
+}
+
+Guerrero* Waterbender::attackSpecial(Guerrero* warrior) {
+	int iSecret;
+
+	if (luck < 5)
+	{
+		iSecret = rand() % 10000 + 1;
+	} else if (luck > 5 && luck < 10)
+	{
+		iSecret = rand() % 1000 + 1;
+	} else {
+		iSecret = rand() % 100 + 1;
+	}
+	
+	int hit = (warrior -> getHP() * specialAttack) - (warrior -> getDefence() * warrior -> getHP());
+
+	if (dynamic_cast<Waterbender*>(warrior) != NULL)
+	{
+		Waterbender* temp = dynamic_cast<Waterbender*>(warrior);
+		hit = hit + (hit * 0.25);
+	}
+	
+	if (iSecret == 50)
+	{
+		cout << "SMAAAAAAAAAAAAAAAAAASH! \n";
+		hit = hit * 2;
+	}
+
+	if (hit  < 0)
+	{
+		hit = hit * -1;
+	}
+
+	cout << name << " deals damage of " << hit << "! \n";
+
+	warrior -> setHP(warrior -> getHP() - hit);
+	return warrior;
+}
+
+Guerrero* Waterbender::recover(Guerrero* warrior) {
+	warrior -> setHP((warrior -> getHP() + 75));
 	return warrior;
 }
