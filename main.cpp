@@ -205,13 +205,9 @@ int main() {
 				fighter2 = army.at(pos2);
 				cout << "Fighter two has been picked. \n";
 			}
-
-			if (fighter1 != NULL && fighter2 != NULL)
-			{
-				fight(fighter1, fighter2);
-			} else {
-				cout << "Something's not quite right. \n";
-			}
+			
+			fight(fighter1, fighter2);
+		
 		} else if (option == 5)
 		{
 			cout << "k, bye. \n";
