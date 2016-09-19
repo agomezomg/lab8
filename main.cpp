@@ -230,6 +230,9 @@ void fight(Guerrero* F1, Guerrero* F2) {
 	int turns = 0;
 	int choice;
 
+	F1 -> setFightHP(F2 -> getHP());
+	F2 -> setFightHP(F1 -> getHP());
+
 	while(choice != 5 && F1 -> getHP() > 0 && F2 -> getHP() > 0) {
 		try {
 			cout << endl;
@@ -413,11 +416,11 @@ void fight(Guerrero* F1, Guerrero* F2) {
 			}
 			if (F1 -> getHP() <= 0)
 			{
-				cout << F1 -> getName() << " has fainted!";
+				cout << F1 -> getName() << " has fainted! \n";
 				//break;
 			} else if (F2 -> getHP() <= 0)
 			{
-				cout << F2 -> getName() << " has fainted!";
+				cout << F2 -> getName() << " has fainted! \n";
 				//break;
 			}
 		} catch (exception e) {

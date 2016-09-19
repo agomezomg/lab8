@@ -62,8 +62,8 @@ Guerrero* Firebender::attack(Guerrero* warrior) {
 		iSecret = rand() % 100 + 1;
 	}
 	
-	int hit = (warrior -> getHP() * this -> offence) - (warrior -> getDefence() * warrior -> getHP());
-	
+	int hit = (fightHP * offence) - (warrior -> getDefence() * fightHP);
+
 	if (iSecret == 50)
 	{
 		cout << "SMAAAAAAAAAAAAAAAAAASH! \n";
@@ -100,7 +100,7 @@ Guerrero* Firebender::attackSpecial(Guerrero* warrior) {
 		iSecret = rand() % 100 + 1;
 	}
 	
-	int hit = (warrior -> getHP() * this -> specialAttack) - (warrior -> getDefence() * warrior -> getHP());
+	int hit = (fightHP * offence) - (warrior -> getDefence() * fightHP);
 	
 	if (iSecret == 50)
 	{

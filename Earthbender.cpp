@@ -63,7 +63,7 @@ Guerrero* Earthbender::attack(Guerrero* warrior) {
 		iSecret = rand() % 100 + 1;
 	}
 	
-	int hit = (warrior -> getHP() * offence) - (warrior -> getDefence() * warrior -> getHP());
+	int hit = (fightHP * offence) - (warrior -> getDefence() * fightHP);
 	
 	if (iSecret == 50)
 	{
@@ -102,8 +102,8 @@ Guerrero* Earthbender::attackSpecial(Guerrero* warrior) {
 		iSecret = rand() % 100 + 1;
 	}
 	
-	int hit = (warrior -> getHP() * specialAttack) - (warrior -> getDefence() * warrior -> getHP());
-	
+	int hit = (fightHP * offence) - (warrior -> getDefence() * fightHP);
+
 	if (iSecret == 50)
 	{
 		cout << "SMAAAAAAAAAAAAAAAAAASH! \n";

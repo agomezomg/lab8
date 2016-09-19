@@ -12,6 +12,7 @@ class Guerrero {
 		int force;
 		int luck;
 		int battlesWon;
+		int fightHP;
 
 	public:
 		Guerrero();
@@ -31,6 +32,8 @@ class Guerrero {
 		void setLuck(int);
 		int getBattlesWon();
 		void setBattlesWon(Guerrero*);
+		int getFightHP();
+		void setFightHP(int);
 		virtual string toString();
 		virtual Guerrero* attack(Guerrero*);
 };

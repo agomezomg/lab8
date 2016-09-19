@@ -54,6 +54,14 @@ Guerrero::~Guerrero() {
 
 }
 
+int Guerrero::getFightHP() {
+	return fightHP;
+}
+
+void Guerrero::setFightHP(int fightHP) {
+	this -> fightHP = fightHP;
+}
+
 string Guerrero::getName() {
 	return this -> name;
 }
@@ -144,7 +152,7 @@ Guerrero* Guerrero::attack(Guerrero* warrior) {
 		iSecret = rand() % 100 + 1;
 	}
 	
-	int hit = (warrior -> getHP() * offence) - (warrior -> getDefence() * warrior -> getHP());
+	int hit = (fightHP * offence) - (warrior -> getDefence() * fightHP);
 	
 	if (iSecret == 50)
 	{

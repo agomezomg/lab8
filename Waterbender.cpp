@@ -72,7 +72,7 @@ Guerrero* Waterbender::attack(Guerrero* warrior) {
 		iSecret = rand() % 100 + 1;
 	}
 	
-	int hit = (warrior -> getHP() * offence) - (warrior -> getDefence() * warrior -> getHP());
+	int hit = (fightHP * offence) - (warrior -> getDefence() * fightHP);
 
 	if (dynamic_cast<Waterbender*>(warrior) != NULL)
 	{
@@ -110,8 +110,8 @@ Guerrero* Waterbender::attackSpecial(Guerrero* warrior) {
 		iSecret = rand() % 100 + 1;
 	}
 	
-	int hit = (warrior -> getHP() * specialAttack) - (warrior -> getDefence() * warrior -> getHP());
-
+	int hit = (fightHP * offence) - (warrior -> getDefence() * fightHP);
+	
 	if (dynamic_cast<Waterbender*>(warrior) != NULL)
 	{
 		Waterbender* temp = dynamic_cast<Waterbender*>(warrior);
